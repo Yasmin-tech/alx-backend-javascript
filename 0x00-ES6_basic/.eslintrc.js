@@ -26,6 +26,7 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
+    'import/extensions': ['error', { 'js': 'ignorePackages' }],
   },
   overrides:[
     {
