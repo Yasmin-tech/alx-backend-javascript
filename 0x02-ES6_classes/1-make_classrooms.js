@@ -1,7 +1,3 @@
-/**
- * Implement a function that return an array of 3 classroom objects
- *
- */
 import ClassRoom from './0-classroom.js';
 
 export default function initializeRooms() {
