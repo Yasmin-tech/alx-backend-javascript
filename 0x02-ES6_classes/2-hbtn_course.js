@@ -67,7 +67,7 @@ export default class HolbertonCourse {
    */
 
   set students(studentsArray) {
-    if (!(Array.isArray(studentsArray))) {
+    if (!(studentsArray instanceof Array)) {
       throw new TypeError('Students must be an Array');
     }
 
