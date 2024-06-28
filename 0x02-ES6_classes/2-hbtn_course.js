@@ -3,7 +3,7 @@
  */
 
 export default class HolbertonCourse {
-   /**
+  /**
    * Creates a new @see {@link HolbertonCourse}.
    *
    * @param {String} name - The name of the course.
@@ -16,17 +16,33 @@ export default class HolbertonCourse {
     this._students = students;
   }
 
+  /**
+   * Gets the name of this course.
+   */
+
   get name() {
     return this._name;
   }
+
+  /**
+   * Gets the length of this course (in months).
+   */
 
   get length() {
     return this._length;
   }
 
+  /**
+   * Gets the names of students in this course.
+   */
+
   get students() {
     return this._students;
   }
+
+  /**
+   * Sets the name of this course.
+   */
 
   set name(n) {
     if (typeof n !== 'string') {
@@ -35,6 +51,10 @@ export default class HolbertonCourse {
     this._name = n;
   }
 
+  /**
+   * Sets the length of this course (in months).
+   */
+
   set length(l) {
     if (typeof l !== 'number') {
       throw new TypeError('Length must be a number');
@@ -42,9 +62,17 @@ export default class HolbertonCourse {
     this._length = l;
   }
 
+  /**
+   * Sets the names of students in this course.
+   */
+
   set students(studentsArray) {
     if (!(Array.isArray(studentsArray))) {
       throw new TypeError('Students must be an Array');
+    }
+
+    if (!studentsArray.every((student) => typeof student === 'string')) {
+      throw new TypeError('Students must be an Array of Strings');
     }
     this._students = studentsArray;
   }
