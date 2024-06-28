@@ -1,4 +1,4 @@
-import Currency from './3-currency.js'; // eslint-disable-line no-unused-vars
+import Currency from './3-currency.js';
 
 /**
  * Implement a class named Pricing
