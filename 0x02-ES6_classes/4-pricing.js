@@ -1,9 +1,5 @@
 import Currency from './3-currency.js';
 
-/**
- * Implement a class named Pricing
- */
-
 export default class Pricing {
   /**
    * Creats a new @see {@link Pricing}
