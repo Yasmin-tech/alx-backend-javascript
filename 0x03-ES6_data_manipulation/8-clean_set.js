@@ -13,7 +13,7 @@ export default function cleanSet(theSet, text) {
     return newString;
   }
   for (const str of theSet) {
-    if (str.startsWith(text)) {
+    if (typeof str === 'string' && str.startsWith(text)) {
       if (i !== 0) {
         newString += '-';
       }
