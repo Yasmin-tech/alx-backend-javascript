@@ -9,7 +9,7 @@ export default function cleanSet(theSet, text) {
   let newString = '';
   let i = 0;
 
-  if (!text) {
+  if (!text || !theSet || !(theSet instanceof Set) || typeof text !== 'string') {
     return newString;
   }
   for (const str of theSet) {
