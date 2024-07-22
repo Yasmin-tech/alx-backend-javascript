@@ -1,4 +1,4 @@
-# 0x00. ES6 Basics
+# 0x00. ES6 Basics (1)
 
 ## Learning Objectives
 
