@@ -1,0 +1,13 @@
+/*
+ * Resolve all promises from the functions in the file utils.js
+ */
+
+import { uploadPhoto, createUser } from './utils.js';
+
+export default function handleProfileSignup() {
+  Promise.all([uploadPhoto(), createUser()])
+    .then(([{ body }, { firstName, lastName }]) => {
+      console.log(body, firstName, lastName);
+    })
+    .catch(() => console.log('Signup system offline'));
+}
