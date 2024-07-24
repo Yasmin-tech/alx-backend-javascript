@@ -2,7 +2,7 @@
  * Resolve all promises from the functions in the file utils.js
  */
 
-import { uploadPhoto, createUser } from './utils.js';
+import { uploadPhoto, createUser } from './utils';
 
 export default function handleProfileSignup() {
   Promise.all([uploadPhoto(), createUser()])
