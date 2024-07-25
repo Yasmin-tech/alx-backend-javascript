@@ -77,4 +77,3 @@ export default class HolbertonCourse {
     this._students = studentsArray;
   }
 }
-
