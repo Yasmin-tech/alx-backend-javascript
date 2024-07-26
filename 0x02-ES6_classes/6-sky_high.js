@@ -1,4 +1,4 @@
-import Building from './5-building.js';
+import Building from './5-building';
 /**
  * Implement a class named SkyHighBuilding that extends from Building
  */
