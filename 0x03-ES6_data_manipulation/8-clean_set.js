@@ -12,10 +12,7 @@ export default function cleanSet(theSet, startString) {
   }
   const listOfSetStrings = [];
   for (const value of theSet) {
-    if (typeof value !== 'string') {
-      return '';
-    }
-    if (value.startsWith(startString)) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
       listOfSetStrings.push(value.slice(startString.length));
     }
   }
