@@ -3,35 +3,45 @@
 const fs = require('node:fs');
 
 function countStudents(path) {
+  // Check the file exists
   if (!fs.existsSync(path)) {
     throw new Error('Cannot load the database');
   }
+
+  // Check path is of type file
   if (!fs.statSync(path).isFile()) {
     throw new Error('Cannot load the database');
   }
-  try {
-    const records = fs.readFileSync(path, 'utf-8');
-    const arr = records.trim().split('\n');
 
-    console.log(`Number of students: ${arr.length - 1}`);
+  // Read the file content
+  const records = fs.readFileSync(path, 'utf-8').trim().split('\n');
 
-    const csStudents = [];
-    for (const line of arr) {
-      if (line.includes('CS')) {
-        csStudents.push(line.split(',')[0]);
-      }
+  console.log(`Number of students: ${records.length - 1}`);
+
+  // Get the header and an array of the students INFO
+  const [header, ...studentsInfo] = records;
+  // Make header an array that includes all colums except the last field
+  const headers = header.split(',').slice(0, -1);
+  const studentGroups = {};
+
+  studentsInfo.forEach((line) => {
+    const studentRecord = line.split(',');
+    const field = studentRecord.pop();
+
+    if (!studentGroups[field]) {
+      studentGroups[field] = [];
     }
-    const sweStudents = [];
-    for (const line of arr) {
-      if (line.includes('SWE')) {
-        sweStudents.push(line.split(',')[0]);
-      }
-    }
+    // Create a student object based on the header
 
-    console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
-    console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
-  } catch (err) {
-    throw new Error('Cannot load the database');
+    const student = Object.fromEntries(
+      headers.map((headerName, index) => [headerName, studentRecord[index]]),
+    );
+    studentGroups[field].push(student);
+  });
+
+  for (const [field, students] of Object.entries(studentGroups)) {
+    const studentList = students.map((student) => student.firstname).join(', ');
+    console.log(`Number of students in ${field}: ${students.length}. List: ${studentList}`);
   }
 }
 
