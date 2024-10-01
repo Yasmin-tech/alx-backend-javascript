@@ -15,8 +15,6 @@ process.stdin.on('readable', () => {
 
 // Write a message before closing
 
-process.on('beforeExit', () => {
-  if (!process.stdin.isTTY) {
-    console.log('This important software is now closing');
-  }
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
