@@ -1,6 +1,6 @@
 // Read a CSV file synchronously
 
-const fs = require('node:fs');
+const fs = require('fs');
 
 function countStudents(path) {
   // Check the file exists
