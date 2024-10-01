@@ -3,7 +3,7 @@
 
 const process = require('node:process');
 
-console.log('Welcome to Holberton School, what is your name?');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 // Read the name from STDIN
 process.stdin.on('readable', () => {
